@@ -13,14 +13,14 @@ void ca_rgb::initialize_ca(int pins[3]){ //initializes LED with a [r, g, b] pin 
 }
 
 void ca_rgb::set_ca(int r, int g, int b){ //sets the LED to an RGB value, 0-255
-	analogWrite(pins[0], _invert(r));
-	analogWrite(pins[1], _invert(g));
-	analogWrite(pins[2], _invert(b));
+	analogWrite(_pins[0], _invert(r));
+	analogWrite(_pins[1], _invert(g));
+	analogWrite(_pins[2], _invert(b));
 }
 
 int ca_rgb::_invert(int pwm){
 	int inverted_pwm = 255;
-	if(pwm <= 255 && pwm => 0){
+	if(pwm <= 255 && pwm >= 0){
 		inverted_pwm = 255-pwm;
 	}
 	return inverted_pwm;
